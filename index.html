@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournament Master - Free Fire BR/CS Match</title>
+    <title>Tournament Master - Free Fire BR Match</title>
     
-<meta property="og:title" content="Tournament Master - Free Fire BR/CS Match">
+<meta name="description" content="Tournament Master™ - Free Fire BR Match | Gamer's রা, তোমরা যারা গেম খেলে সত্যিকারের টাকা ইনকাম করতে চাও, তারা চলে আসো আমাদের Tournament Master™ ওয়েবসাইটে এবং জিতে নাও অনেক টাকা 💰">
+<meta name="keywords" content="Free Fire tournament, Free Fire BR match, earn money playing games, Free Fire prize money, gaming tournament, Free Fire BR, real money, game earnings, online gaming competition, play Free Fire for money, Tournament Master, gamer community">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Tournament Master - Free Fire BR Match">
 <meta property="og:description" content="Gamer's রা, তোমরা যারা গেম খেলে সত্যিকারের টাকা ইনকাম করতে চাও, তারা চলে আসো আমাদের Tournament Master™ ওয়েবসাইটে এবং জিতে নাও অনেক টাকা 💰">
 <meta property="og:image" content="https://i.imgur.com/vPHh9iK.png">
 <meta property="og:url" content="https://tournamentmaster.netlify.app">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tournament Master™">
 
-<meta name="twitter:title" content="Tournament Master - Free Fire BR/CS Match">
+<meta name="twitter:title" content="Tournament Master - Free Fire BR Match">
 <meta name="twitter:description" content="Gamer's রা, তোমরা যারা গেম খেলে সত্যিকারের টাকা ইনকাম করতে চাও, তারা চলে আসো আমাদের Tournament Master™ ওয়েবসাইটে এবং জিতে নাও অনেক টাকা 💰">
 <meta name="twitter:image" content="https://i.imgur.com/vPHh9iK.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -26,17 +30,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&family=Oswald:wght@300;400;700&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&family=Merriweather:wght@400;700&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Hind Siliguri', sans-serif;
+            font-family: 'Hind Siliguri', 'Merriweather', serif;
         }
 
         body {
             background: #0d0d0d;
+            font-family: 'Hind Siliguri', 'Merriweather', serif;
             color: white;
             text-align: center;
             padding-bottom: 40px;
@@ -46,17 +51,18 @@
             background: linear-gradient(135deg, #ff7f00, #ff0000);
             padding: 25px;
             font-size: 32px;
+            font-family: 'Merriweather', sans-serif;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-family: 'Oswald', sans-serif;
             text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
             box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5);
         }
 
-        .content, .rules, .registration {
+        .content, .br-match, .cs-match, .rules, .registration {
             margin: 40px auto;
             width: 90%;
+            
             max-width: 600px;
             background: rgba(255, 255, 255, 0.08);
             padding: 25px;
@@ -67,6 +73,15 @@
         .content h2, .rules h2, .registration h2 {
             font-size: 24px;
             margin-bottom: 15px;
+            
+            color: #ffcc00;
+            text-shadow: 0px 0px 8px rgba(255, 204, 0, 0.8);
+        }
+        
+        .h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            
             color: #ffcc00;
             text-shadow: 0px 0px 8px rgba(255, 204, 0, 0.8);
         }
@@ -77,6 +92,7 @@
             color: white;
             padding: 14px 26px;
             font-size: 20px;
+            
             font-weight: bold;
             text-decoration: none;
             border-radius: 8px;
@@ -89,25 +105,79 @@
             transform: scale(1.1);
         }
 
+        
+
         ul {
-            list-style: none;
-            padding: 0;
-        }
+    background: #f7f7f7;
+    padding: 15px;
+    margin-bottom: 60px;
+    border-radius: 10px;
+    list-style: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #4CAF50;
+    animation: fadeIn 0.8s ease-in-out;
+}
 
-        ul li {
-            padding: 12px;
-            font-size: 18px;
-            color: #ffcc00;
-        }
+ul li {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    transition: 0.3s ease-in-out;
+}
 
-        p, a {
+ul li:last-child {
+    border-bottom: none;
+}
+
+ul li:hover {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding-left: 20px;
+}
+        
+        
+
+        a {
             font-size: 18px;
+            
             color: #ddd;
         }
+        
+        p {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    color: #333;
+    line-height: 1.6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    border-left: 5px solid #ff6b6b;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 
         footer {
             background: #222;
             padding: 12px;
+            
             font-size: 16px;
             color: #aaa;
             margin-top: 50px;
@@ -121,193 +191,335 @@
     </header>
 
     <div class="content">
-        <h2>🔥 Free Fire টুর্নামেন্টে অংশ নিন! 🔥</h2>
+        <h2 class="h2">🔥 Free Fire টুর্নামেন্টে অংশ নিন! 🔥</h2>
         <p>এই টুর্নামেন্টে অংশ নিয়ে দেখিয়ে দিন আপনার দক্ষতা! বিজয়ী হলে জিতে নিন আকর্ষণীয় পুরস্কার!   
         সাথে BR এ প্রতি কিল = ৫/১০ টাকা (CS এ নয়)! ২০, ৩২, কিংবা ৪৮ জন প্লেয়ারের এপিক ব্যাটল! CS টুর্নামেন্টে রয়েছে ২ টি Squad Battle!</p>
         <a href="https://chat.whatsapp.com/FDcNAIOf11bCH0ZDrKFKRg" class="join-btn">
             <i class="fa-brands fa-whatsapp"></i> এখনই জয়েন করুন!
         </a>
     </div>
+    
+    <div class="br-match">
+        <h2 class="h2">🎮 BR Tournament এ কিভাবে পুরস্কার দেওয়া হবে? 💰</h2>
+        <ul>
+            <li>✅ 1st - 90TK</li>
+            <li>✅ 2nd - 80TK</li>
+            <li>✅ 3rd - 70TK</li>
+            <li>✅ Per Kill - 10TK</li>
+            <li>✅ Entry Fee - 20TK</li>
+            <li>✅ Slot - 30</li>
+            <li>✅ Admin Charge - 60TK</li>
+        </ul>
+        
+        <h2 class="h2">💸 Admin Charge নিয়ে কিছু কথা 💸</h2>
+        <p class="admin">Gamer's তোমরা তো Br Tournament এর পুরস্কার কিভাবে দেওয়া হবে তা তো দেখলে এখন এটাও মনে রাখো যে, আমরা কিন্তু আমাদের Website কে Netlify তে হোস্ট করেছি যার জন্য কোনো টাকা বা চার্জ দিতে হচ্ছে না! কিন্তু Netlify এরো একটা সীমবদ্ধতা রয়েছে, আর যখন সেটা শেষ হয়ে যাবে তখন আর আমাদের এই ওয়েবসাইটটি কাজ করবে না! তাই পরবর্তী তে আমাদের একটি ডুমেইন কিনতে হবে এবং সেই ডুমেইনের প্রতি মাসে একটি ফি থাকে আর আপাতত সেই গুলো করার জন্য আমাদের কে Admin Charge টা বাড়িয়ে রাখতে হচ্ছে, পরবর্তীতে সেগুলো কেনা হয়ে গেলে Admin Charge কমে যাবে। তাই আমি ক্ষমাপ্রার্থী 😔</p>
+        
+    </div>
+    
+    <div class="cs-match">
+        <h2 class="h2">🎮 CS Tournament এ কিভাবে পুরস্কার দেওয়া হবে? 💰</h2>
+        <ul>
+            <li>✅ 1st - 100TK</li>
+            <li>✅ 2nd - 90TK</li>
+            <li>✅ 3rd - 70TK</li>
+            <li>✅ 4th - 60TK</li>
+            <li>❌ Per Kill - নেই।</li>
+            <li>✅ Entry Fee - 50TK</li>
+            <li>✅ Slot - 08 OR 2 SQUAD</li>
+            <li>✅ Admin Charge - 80TK</li>
+        </ul>
+        
+        <h2 class="h2">💸 স্কোয়াড পুরষ্কার ও Admin Charge নিয়ে কিছু কথা 💸</h2>
+        <p class="admin">Gamer's তোমরা তো Cs Tournament এর পুরস্কার কিভাবে দেওয়া হবে তা তো দেখলে এখন আরকটা কথা মনে রাখো যে ২ টি স্কোয়াড এর মধ্যে, যেকোনো একটি স্কোয়াড জিতবে এবং তাদের প্রথম ১-৪ জন কে পুরষ্কার দেওয়া হবে আর এটাও মনে রাখো যে, আমরা কিন্তু আমাদের Website কে Netlify তে হোস্ট করেছি যার জন্য কোনো টাকা বা চার্জ দিতে হচ্ছে না! কিন্তু Netlify এরো একটা সীমবদ্ধতা রয়েছে, আর যখন সেটা শেষ হয়ে যাবে তখন আর আমাদের এই ওয়েবসাইটটি কাজ করবে না! তাই পরবর্তী তে আমাদের একটি ডুমেইন কিনতে হবে এবং সেই ডুমেইনের প্রতি মাসে একটি ফি থাকে আর আপাতত সেই গুলো করার জন্য আমাদের কে Admin Charge টা বাড়িয়ে রাখতে হচ্ছে, পরবর্তীতে সেগুলো কেনা হয়ে গেলে Admin Charge কমে যাবে। তাই আমি ক্ষমাপ্রার্থী 😔</p>
+        
+    </div>
 
     <div class="rules">
-        <h2>📌 টুর্নামেন্ট রুলস</h2>
+        <h2 class="h2">📌 টুর্নামেন্ট রুলস</h2>
         <ul>
-            <li>✅ ফেয়ার প্লে: কোন রকম হ্যাকিং বা চিটিং করলে ডিসকোয়ালিফাই করা হবে।</li>
+            <li>✅ ফেয়ার প্লে: কোন রকম হ্যাকিং বা চিটিং, Br ম্যাচে গাড়ি ব্যাবহার করলে ডিসকোয়ালিফাই করা হবে।</li>
             <li>✅ প্রতি কিল = ১০ টাকা! তবে CS tournament এ Per Kill Offer নেই</li>
             <li>✅ BR এ টপ ৩ বিজয়ীরা পাবেন এক্সক্লুসিভ প্রাইজ!</li>
             <li>✅ CS এ Winner Squad এর বিজয়ীরা পাবেন এক্সক্লুসিভ প্রাইজ!</li>
-            <li>✅ সঠিক সময়ে রুমে জয়েন করুন, কিছুটা দেরি করলে প্রবেশ নিষিদ্ধ!</li>
+            <li>✅ সঠিক সময়ে রুমে জয়েন করুন, অন্যথায় কোনো টাকা রিফান্ড দেওয়া হবে না!</li>
             <li>✅ নিজের Free Fire নাম ও UID সঠিকভাবে জমা দিন।</li>
+            <li>✅ ম্যাচ শুরুর আগে রুম নাম্বার ও পাসওয়ার্ড WhatsApp গ্রুপে দেওয়া হবে।</li>
+            <li>✅ কোনো প্রকার অভিযোগ থাকলে Contact নামের বাটনটিতে ক্লিক করে, আপনার অভিযোটি শান্ত ভবে জানাতে পারেন ❤️</li>
+            <li>✅ বাহিরের Unregistered প্লেয়ার এড দেওয়া যাবে না</li>
         </ul>
     </div>
 
     <div class="registration">
-        <h2>📢 কিভাবে রেজিস্ট্রেশন করবেন?</h2>
-        <p>রেজিস্ট্রেশন করা খুব সহজ! নিচের ধাপগুলো অনুসরণ করুন:</p>
+        <h2 class="h2">📢 কিভাবে রেজিস্ট্রেশন ও পেমেন্ট করবেন?</h2>
+        <p>রেজিস্ট্রেশন ও পেমেন্ট করা খুবি সহজ! নিচের ধাপগুলো অনুসরণ করুন:</p>
         <ul>
-            <li>1️⃣ এন্ট্রি ফি জমা দিতে হবে (একটু নিচে Br/Cs এর পেমেন্ট সিস্টেম আছে)।</li>
-            <li>2️⃣ Free Fire এর নাম ও UID পেমেন্ট করার সময় লেখা থাকবে দেওয়ার জন্য।</li>
-            <li>3️⃣ ম্যাচ শুরুর আগে রুম নাম্বার ও পাসওয়ার্ড WhatsApp গ্রুপে দেওয়া হবে।</li>
-            <li>4️⃣ সঠিক সময়ে রুমে জয়েন করুন, অন্যথায় কোনো টাকা রিফান্ড দেওয়া হবে না!</li>
+            <li>1️⃣ Br অথবা Cs এর জন্য নির্দিষ্ট পরিমাণে এন্ট্রি ফি জমা দিতে হবে। যেমন: Br Tournament এর জন্য প্রতিজনে ২০ টাকা আর Cs Tournament এর জন্য প্রতি জনে ৫০ টাকা। আর যদি Squad নিয়ে BR অথবা Cs খেলতে চান তাহলে Contact নামে বাটনটির সাহায্যে ক্লিক করার পর আপনাকে আমার Whatsapp Id তে নিয়ে যাওয়া হবে, এবং তারপর সেখানে বিস্তারিত বলবেন। আ্য হ্যাঁ একটু নিচে Br/Cs এর পেমেন্ট সিস্টেম আছে।</li>
+            <li>2️⃣ Free Fire এর নাম ও UID পেমেন্ট করার সময় লেখা থাকবে দেওয়ার জন্য, তাই নিজ দায়িত্বে সেগুলো লিখে দিবেন।</li>
+            <li>3️⃣ আপনার ব্যাবহার অবশ্যই ভালো থাকতে হবে, ও আইডির লেভেল সর্বোচ্চ ৩০+ হতে হবে।</li>
+            <li>4️⃣ হ্যাক বা পেনেল ইউজ করা সম্পূর্ণ নিষিদ্ধ এবং পিসি প্লেয়ার রা রেজিস্ট্রেশন করতে পারবে না।</li>
         </ul>
     </div>
     
-<div class="container">
-    <div class="icon">
-       <img src="https://i.imgur.com/vPHh9iK.jpeg.png" alt=""></img>
-       <h1>Tournament Master™</h1>
-    </div>
-    
-    <form id="tournamentForm" onsubmit="handleFormSubmit(event)">
-        <label for="tournamentType"><h2>Select Tournament Type (BR/CS):</h2></label>
-        <select id="tournamentType" name="tournamentType" required>
-            <option value="br">BR Tournament</option>
-            <option value="cs">CS Tournament</option>
-        </select>
-        
-        <button type="submit">Proceed to Payment</button>
-    </form>
+    <div class="whatsapp-btn" id="draggableBtn">
+    <a href="https://wa.me/+8801301841691" target="_blank">
+        <img src="https://i.imgur.com/4gS0wvy.jpeg" alt="Whatsapp Icon">
+    </a>
 </div>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&family=Merriweather:wght@400;700&display=swap');
-    
-    .container {
-            font-family: 'Merriweather', sans-serif;
-            margin: 40px auto;
-            width: 90%;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.4);
-}
-
-.icon {
-    text-align: center;
-    font-family: 'Merriweather', sans-serif;
+    .whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: #25D366;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: glow 1.5s infinite alternate;
+    z-index: 1000;
+    cursor: pointer;
+    user-select: none;
 }
 
-.icon img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 10px;
+.whatsapp-btn img {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    transition: 0.3s ease;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
-.icon img:hover {
+.whatsapp-btn a {
+    display: block;
+}
+
+.whatsapp-btn:hover {
     transform: scale(1.1);
 }
 
-.icon h1 {
-    font-family: 'Merriweather', serif;
-    font-size: 24px;
-    color: #E60044;
-    font-weight: 700;
-    margin: 0;
-}
 
-@media screen and (max-width: 768px) {
-    .icon img {
-        width: 100px;
-    }
 
-    .icon h1 {
-        font-size: 20px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .icon img {
+@media (max-width: 600px) {
+    .whatsapp-btn {
         width: 80px;
-    }
-
-    .icon h1 {
-        font-size: 18px;
+        height: 80px;
     }
 }
 
-h2 {
-    color: #ffcc00;
-    font-family: 'Merriweather', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 25px;
-    text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.6);
+@media (min-width: 601px) and (max-width: 960px) {
+    .whatsapp-btn {
+        width: 90px;
+        height: 90px;
+    }
 }
 
-form {
-    background: white;
+@media (min-width: 961px) and (max-width: 1280px) {
+    .whatsapp-btn {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #D32F2F, 0 0 20px #D32F2F, 0 0 30px #D32F2F;
+    }
+    100% {
+        box-shadow: 0 0 15px #F44336, 0 0 25px #F44336, 0 0 35px #F44336;
+    }
+}
+
+@media (min-width: 1281px) {
+    .whatsapp-btn {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+.container-1 {
+    max-width: 600px;
     font-family: 'Merriweather', sans-serif;
+    margin: 40px auto;
+    width: 90%;
+    background: #fff;
     padding: 25px;
-    border-radius: 8px;
-    text-align: left;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
-select {
-    background: #222;
+.icon-1 {
+    display: flex;
+    align-items: center;
     font-family: 'Merriweather', sans-serif;
-    color: #ddd;
-    padding: 12px;
-    border: 2px solid #ffcc00;
-    border-radius: 8px;
-    font-size: 16px;
-    width: 100%;
-    margin-bottom: 20px;
-    transition: 0.3s;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
-select:focus {
-    border-color: #ff5500;
-    background: #333;
-}
-
-button {
+.icon-img-1 {
+    width: 80px; 
+    height: 80px;
     font-family: 'Merriweather', sans-serif;
-    background: linear-gradient(135deg, #ff5500, #ff2200);
-    color: white;
-    padding: 12px 24px;
-    font-size: 18px;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.icon-img-1:hover {
+    transform: scale(1.1);
+}
+
+.title-1 {
+    font-size: 22px;
     font-weight: bold;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(255, 85, 0, 0.8);
-    transition: 0.4s;
+    font-family: 'Merriweather', sans-serif;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.form-1 {
+    margin-top: 20px;
+}
+
+.heading-1 {
+    font-size: 18px;
+    font-family: 'Merriweather', sans-serif;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.label-1 {
+    display: block;
+    font-weight: 600;
+    font-family: 'Merriweather', sans-serif;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.select-1 {
     width: 100%;
+    padding: 14px;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 18px;  
+    font-weight: bold;  
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    text-align: center;  
+    transition: all 0.3s ease-in-out;
+}
+
+.select-1:hover {
+    border-color: #388E3C;
+    background-color: #e8f5e9;
+}
+
+.select-1:focus {
+    border-color: #388E3C;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.select-1 option {
+    padding: 10px;
+    font-size: 18px;  
+    font-family: 'Merriweather', sans-serif;
+    font-weight: bold;  
+    background-color: #ffffff;
+    color: #333;
+    text-align: center; 
     cursor: pointer;
 }
 
-button:hover {
-    background: linear-gradient(135deg, #ff2200, #cc0000);
+.select-1 option:hover {
+    background-color: #f0f0f0;
+}
+.option-1 {
+    font-size: 16px;
+    padding: 10px;
+    font-family: 'Merriweather', sans-serif;
 }
 
-button:active {
-    transform: scale(0.98);
+.button-1 {
+    width: 100%;
+    padding: 14px;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+.button-1:hover {
+    background: #388E3C;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 600px) {
-    .container {
-        padding: 15px;
+    .heading-7 {
+        font-size: 20px;
     }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    select, button {
+    .select-8 {
         font-size: 16px;
+        font-family: 'Merriweather', sans-serif;
+        padding: 10px;
+    }
+    .button-11 {
+        font-size: 16px;
+        font-family: 'Merriweather', sans-serif;
+        padding: 12px;
     }
 }
+
+
 </style>
+      
+    </div>
+    
+  <div class="container-1">
+    <div class="icon-1">
+        <img src="https://i.imgur.com/vPHh9iK.png" alt="Profile Picture" class="icon-img-1">
+    </div>
+    <h2 class="title-1" style="color: blue;">Tournament Registration</h2>
+    
+    <form id="tournamentForm" class="form-1" onsubmit="handleFormSubmit(event)">
+        <h3 class="heading-1" style="color: red; font-weight: bold;">Select Tournament Type (BR/CS):</h3>
+        
+        <label for="tournamentType" class="label-1">Tournament Type</label>
+        <select id="tournamentType" name="tournamentType" required class="select-1">
+            <option value="br" class="option-1">BR Tournament</option>
+            <option value="cs" class="option-1">CS Tournament</option>
+        </select>
+        
+        <button type="submit" class="button-1">Proceed to Payment</button>
+    </form>
+</div>
 
 <script>
     function handleFormSubmit(event) {
