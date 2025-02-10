@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LW Tournament Payment - Tournament Master™</title>
+    <meta property="og:title" content="LW Tournament Payment - Tournament Master™">
+<meta property="og:description" content="Gamer's রা, তোমরা যারা গেম খেলে সত্যিকারের টাকা ইনকাম করতে চাও, তারা চলে আসো আমাদের Tournament Master™ ওয়েবসাইটে এবং জিতে নাও অনেক টাকা 💰">
+<meta property="og:image" content="https://i.imgur.com/vPHh9iK.png">
+<meta property="og:url" content="https://tournamentmaster.netlify.app">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tournament Master™">
+
+<meta name="twitter:title" content="LW Tournament Payment - Tournament Master™">
+<meta name="twitter:description" content="Gamer's রা, তোমরা যারা গেম খেলে সত্যিকারের টাকা ইনকাম করতে চাও, তারা চলে আসো আমাদের Tournament Master™ ওয়েবসাইটে এবং জিতে নাও অনেক টাকা 💰">
+<meta name="twitter:image" content="https://i.imgur.com/vPHh9iK.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="icon" href="https://i.imgur.com/vPHh9iK.png" type="image/png" sizes="32x32">
+<link rel="icon" href="https://i.imgur.com/vPHh9iK.png" type="image/png" sizes="16x16">
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
+body {
+    font-family: 'Hind Siliguri', 'Merriweather', serif;
+    text-align: center;
+    background: red;
+    padding: 20px;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.icon img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.icon img:hover {
+    transform: scale(1.1);
+}
+
+.icon h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 24px;
+    color: #E60044;
+    font-weight: 700;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .icon img {
+        width: 100px;
+    }
+
+    .icon h1 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .icon img {
+        width: 80px;
+    }
+
+    .icon h1 {
+        font-size: 18px;
+    }
+}
+
+.container {
+    font-family: 'Hind Siliguri', serif;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+    width: 100%;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0;
+    border: 2px solid #25D366;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+    font-family: 'Merriweather', serif;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #1da851;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 164, 85, 0.5);
+}
+
+input::placeholder {
+    color: #666;
+}
+
+input[type="text"] {
+    border-color: #25D366;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-family: 'Hind Siliguri', serif;
+    background: #25D366;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1da851;
+    transform: scale(1.05);
+}
+
+h2 {
+    color: #E60044;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Merriweather', serif;
+}
+
+.bkash-info {
+    background: #E60044;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-family: 'Merriweather', sans-serif;
+}
+
+.bkash-info button {
+    background-color: #ff9a9e;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    font-family: 'Merriweather', sans-serif;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-left: -1px;
+    transition: 0.3s;
+    vertical-align: middle;
+}
+        .bkash-info button:hover {
+            background-color: green;
+        }
+        
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="icon">
+       <img src="https://i.imgur.com/vPHh9iK.png" alt=""></img>
+       <h1>Tournament Master™</h1>
+    </div>
+    <h2>LW Tournament Payment - Tournament Master™</h2>
+   <p class="bkash-info">
+    📢 Our Bkash Number: <span id="bkashNumberText">+8801301841691</span>
+    <button onclick="copyText()">Copy</button>
+</p>
+
+<script>
+    function copyText() {
+        var copyText = document.getElementById("bkashNumberText"); 
+        var tempInput = document.createElement("input");
+        document.body.appendChild(tempInput);
+        tempInput.value = copyText.textContent || copyText.innerText;
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("Bkash Number copied: " + copyText.textContent);
+    }
+</script>
+
+    <p>💰 ৪০ টাকা পাঠানোর পরে, নিচের এই ফর্মটি পূরণ করুন...🪙</p>
+    
+    <form id="registrationForm" onsubmit="redirectToWhatsApp(event)">
+    <input type="text" id="playerName" placeholder="Your Name" required>
+    
+    <input type="text" id="inGameName" placeholder="Your In-Game Name (Copy & Paste)" required>
+    
+    <input type="tel" id="freeFireID" placeholder="Your Free Fire UID Number" required 
+        pattern="[0-9]*" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+    
+    <div style="display: flex; align-items: center;">
+        <span style="padding: 12px; background: #ddd; border-radius: 6px 0 0 6px; 5px; font-family: 'Merriweather', serif;">+880</span>
+        <input type="tel" id="bkashNumber" placeholder="Your Bkash Number" required 
+            pattern="[0-9]*" inputmode="numeric" maxlength="10" minlength="10" 
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+            style="border-radius: 0 6px 6px 0; flex: 1;">
+    </div>
+    
+    <input type="text" id="transactionID" placeholder="Send Money Transaction ID (৪০ টাকা)"  maxlength="10" minlength="10" >
+    
+
+    
+    
+        <button type="submit">✅ Confirm & Join WhatsApp</button>
+    </form>
+</div>
+
+<script>
+    function redirectToWhatsApp(event) {
+    event.preventDefault();
+
+    let playerName = document.getElementById("playerName").value;
+    let freeFireID = document.getElementById("freeFireID").value;
+    let inGameName = document.getElementById("inGameName").value;
+   let bkashNumber = "%2B880" + document.getElementById("bkashNumber").value;
+    let transactionID = document.getElementById("transactionID").value;
+
+    let message = `Tournament Master™!%0A
+    ✓ নাম: ${playerName}%0A
+    ✓ Free Fire ID: ${freeFireID}%0A
+    ✓ In-Game Name (IGN): ${inGameName}%0A
+    ✓ Bkash নম্বর: ${bkashNumber}%0A
+    ✓ Transaction ID: ${transactionID}%0A
+    এই তথ্য গুলোর সাথে আবার আপনাকে, বিকাশ App এর লেনদেন সেকশনের একটি স্ক্রিনশট দিতে হবে (Proof হিসেবে)!`;
+
+    let whatsappURL = "https://wa.me/8801301841691?text=" + message;
+    window.location.href = whatsappURL;
+}
+</script>
+
+</body>
+</html>
