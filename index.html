@@ -326,14 +326,26 @@ ul li:hover {
             <i class="fa-brands fa-whatsapp"></i> এখনই জয়েন করুন! 
         </a>
 
-        <a href="#" class="notifyBtn">Allow Notification</a>
+        <button id="notifyBtn">Notification</button>
 
 <script>
-document.querySelector(".notifyBtn").addEventListener("click", function(event) {
-    event.preventDefault();
-
+function sendNotification() {
     if (!("Notification" in window)) {
         alert("আপনার ব্রাউজার নোটিফিকেশন সাপোর্ট করে না!");
+        return;
+    }
+
+    let notificationCount = localStorage.getItem("notificationCount");
+    const currentTime = new Date().getTime();
+
+    
+    if (!notificationCount) {
+        notificationCount = 0; 
+    }
+
+    
+    if (notificationCount >= 24) {
+        alert("আজকের লিমিট পূর্ণ হয়েছে!");
         return;
     }
 
@@ -341,13 +353,21 @@ document.querySelector(".notifyBtn").addEventListener("click", function(event) {
         if (permission === "granted") {
             new Notification("🔥 Free Fire Tournament চলছে!", {
                 body: "এখনই জয়েন করুন!",
-                icon: "https://i.imgur.com/vPHh9iK.png"
+                icon: "https://tournamentmaster.netlify.app/favicon.png"
             });
-        } else if (permission === "denied") {
-            alert("আপনি নোটিফিকেশন Block করেছেন! সেটিংস থেকে অনুমতি দিন।");
+
+            notificationCount++;
+            localStorage.setItem("notificationCount", notificationCount);
+
+            
+            setTimeout(sendNotification, 60 * 60 * 1000);
+        } else {
+            alert("Oh No... আপনি নোটিফিকেশনর অনুমতি দেননি!");
         }
     });
-});
+}
+
+document.getElementById("notifyBtn").addEventListener("click", sendNotification);
 </script>
     </div>
     
