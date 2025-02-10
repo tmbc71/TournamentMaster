@@ -323,7 +323,44 @@ ul li:hover {
         <p>এই টুর্নামেন্টে অংশ নিয়ে দেখিয়ে দিন আপনার দক্ষতা! বিজয়ী হলে জিতে নিন আকর্ষণীয় পুরস্কার!   
         সাথে BR এ প্রতি কিল = ১০ টাকা (CS ও LW এ স্কোয়াড ও ডুয়ো পুরষ্কার আছে ✅, Per Kill নেই ❌)! ২০, ৩২, কিংবা ৪৮ জন প্লেয়ারের এপিক ব্যাটল! CS টুর্নামেন্টে রয়েছে ২ টি Squad ও LW এ ২ টি Duo Battle!</p>
         <a href="https://chat.whatsapp.com/FDcNAIOf11bCH0ZDrKFKRg" class="join-btn">
-            <i class="fa-brands fa-whatsapp"></i> এখনই জয়েন করুন!
+            <i class="fa-brands fa-whatsapp"></i> এখনই জয়েন করুন! <button id="notifyBtn">নোটিফিকেশন দেখাও</button>
+
+<script>
+function sendNotification() {
+    if (!("Notification" in window)) {
+        alert("আপনার ব্রাউজার নোটিফিকেশন সাপোর্ট করে না!");
+        return;
+    }
+
+    let notificationCount = localStorage.getItem("notificationCount");
+    if (!notificationCount) {
+        notificationCount = 0;
+    }
+
+    if (notificationCount >= 24) {
+        alert("আজকের লিমিট পূর্ণ হয়েছে!");
+        return;
+    }
+
+    Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+            new Notification("🔥 Free Fire Tournament চলছে!", {
+                body: "এখনই জয়েন করুন!",
+                icon: "https://tournamentmaster.netlify.app/favicon.png"
+            });
+
+            notificationCount++;
+            localStorage.setItem("notificationCount", notificationCount);
+
+            setTimeout(sendNotification, 60 * 60 * 1000);
+        } else {
+            alert("আপনি নোটিফিকেশন অনুমতি দেননি!");
+        }
+    });
+}
+
+document.getElementById("notifyBtn").addEventListener("click", sendNotification);
+</script>
         </a>
     </div>
     
