@@ -325,50 +325,10 @@ ul li:hover {
         <a href="https://chat.whatsapp.com/FDcNAIOf11bCH0ZDrKFKRg" class="join-btn">
             <i class="fa-brands fa-whatsapp"></i> এখনই জয়েন করুন! 
         </a>
-
-        <button id="notifyBtn">Notification</button>
-
-<script>
-function sendNotification() {
-    if (!("Notification" in window)) {
-        alert("আপনার ব্রাউজার নোটিফিকেশন সাপোর্ট করে না!");
-        return;
-    }
-
-    let notificationCount = localStorage.getItem("notificationCount");
-    const currentTime = new Date().getTime();
-
-    
-    if (!notificationCount) {
-        notificationCount = 0; 
-    }
-
-    
-    if (notificationCount >= 24) {
-        alert("আজকের লিমিট পূর্ণ হয়েছে!");
-        return;
-    }
-
-    Notification.requestPermission().then(permission => {
-        if (permission === "granted") {
-            new Notification("🔥 Free Fire Tournament চলছে!", {
-                body: "এখনই জয়েন করুন!",
-                icon: "https://tournamentmaster.netlify.app/favicon.png"
-            });
-
-            notificationCount++;
-            localStorage.setItem("notificationCount", notificationCount);
-
-            
-            setTimeout(sendNotification, 60 * 60 * 1000);
-        } else {
-            alert("Oh No... আপনি নোটিফিকেশনর অনুমতি দেননি!");
-        }
-    });
-}
-
-document.getElementById("notifyBtn").addEventListener("click", sendNotification);
-</script>
+<a href="https://tournamentmaster.netlify.app/TournamentMaster_1.0_1.apk" download>
+  <button>Download TournamentMaster App</button>
+</a>
+       
     </div>
     
     <div class="br-match">
