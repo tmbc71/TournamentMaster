@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ফোরাম পোস্ট</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Hind Siliguri', 'Merriweather', serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e1e, #121212);
+    color: #e3e3e3;
+    text-align: center;
+    line-height: 1.7;
+    padding-bottom: 50px;
+    font-size: 16px;
+    overflow-x: hidden;
+    perspective: 1000px;
+}
+
+h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin: 60px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease;
+}
+
+h2:hover {
+    transform: scale(1.05) rotateY(5deg);
+}
+
+.forum-posts {
+    margin: 40px auto;
+            width: 90%;
+            
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.4);
+}
+
+
+
+.post {
+    margin: 40px auto;
+            width: 90%;
+            
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.4);
+}
+
+
+
+.post h3 {
+    
+}
+
+.post p {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 15px;
+    color: #333;
+    line-height: 1.6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    border-left: 5px solid #ff6b6b;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.post small {
+    display: block;
+    margin-top: 10px;
+    color: #bbb;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.forum-posts a {
+    text-decoration: none;
+    color: #03a9f4;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    font-weight: bold;
+}
+
+.forum-posts a:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+.like-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.like-button {
+    background: linear-gradient(135deg, #ff4081, #03a9f4);
+    border: none;
+    padding: 14px 30px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.like-button:hover {
+    background: linear-gradient(135deg, #ff9800, #03a9f4);
+    transform: scale(1.05);
+}
+
+.like-button:active {
+    transform: scale(1);
+}
+
+@media (max-width: 1024px) {
+    .forum-posts {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .forum-posts {
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .forum-posts {
+        padding: 20px;
+    }
+
+    .like-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+/* Styling for the comment input field */
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: #222;
+    color: #e3e3e3;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus effect for the comment input */
+.comment-input:focus {
+    border-color: #03a9f4;
+    background-color: #333;
+}
+
+/* Styling for the 'Post Comment' button */
+.comment-button {
+    background: linear-gradient(135deg, #ff4081, #03a9f4);
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for the 'Post Comment' button */
+.comment-button:hover {
+    background: linear-gradient(135deg, #ff9800, #03a9f4);
+    transform: scale(1.05);
+}
+
+/* Styling for each comment in the comments section */
+.comment-section {
+    background: #2d2d2d;
+    color: #c4c4c4;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+/* Hover effect for each comment */
+.comment-section:hover {
+    background: #444;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.comment-section strong {
+    color: #03a9f4;
+    margin-right: 5px;
+}
+
+.comment-section small {
+    font-size: 0.8rem;
+    color: #bbb;
+    font-style: italic;
+}
+</style>
+<body>
+    <div class="forum-posts">
+            <h2>ফোরাম পোস্টগুলো</h2>
+            </div>
+            
+    <div class="forum-posts">
+
+        <div id="posts"></div>
+<script type="module">
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, get, set, update } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+    const firebaseConfig = {  
+      apiKey: "AIzaSyCTeGkGhh7da1qEJVq7GQewFX1N5Gz7yxY",
+      authDomain: "tmbc158.firebaseapp.com",
+      databaseURL: "https://tmbc158-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "tmbc158",
+      storageBucket: "tmbc158.appspot.com",
+      messagingSenderId: "365504228413",
+      appId: "তোর নতুন APP ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const postsContainer = document.getElementById('posts');
+
+    let currentUser = localStorage.getItem('username'); // লগইন করা ইউজার থাকলে localStorage থেকে নেয়া হবে
+
+    get(ref(database, 'posts')).then((snapshot) => {
+      if (snapshot.exists()) {
+        postsContainer.innerHTML = '';
+        snapshot.forEach((childSnapshot) => {
+          const post = childSnapshot.val();
+          const postId = childSnapshot.key;
+          const postElement = document.createElement('div');
+          postElement.classList.add('post');
+          postElement.innerHTML = `
+            <h3>${post.title}</h3>
+            <p>${post.content}</p>
+            <small>Posted by: ${post.username} at ${new Date(post.timestamp).toLocaleString()}</small>
+            <div>
+              <button class="like-button" data-post-id="${postId}">Like (${post.likes || 0})</button>
+              <div class="comment-box">
+                <input id="comment-input-${postId}" class="comment-input" type="text" placeholder="Write a comment..." />
+                <button class="comment-button" data-post-id="${postId}">Post Comment</button>
+              </div>
+            </div>
+            <div id="comments-${postId}">
+              ${renderComments(post.comments || {})}
+            </div>
+          `;
+          postsContainer.appendChild(postElement);
+        });
+
+        document.querySelectorAll('.like-button').forEach((button) => {
+          button.addEventListener('click', (e) => {
+            if (!currentUser) {
+              alert("লাইক করতে লগইন করুন!");
+              return;
+            }
+            const postId = e.target.getAttribute('data-post-id');
+            const postRef = ref(database, 'posts/' + postId);
+            get(postRef).then((snapshot) => {
+              const post = snapshot.val();
+              const likedBy = post.likedBy || {};
+              if (likedBy[currentUser]) {
+                alert("আপনি ইতিমধ্যেই এই পোস্টে লাইক দিয়েছেন!");
+                return;
+              }
+              likedBy[currentUser] = true;
+              const updatedLikes = (post.likes || 0) + 1;
+              update(postRef, { likes: updatedLikes, likedBy: likedBy }).then(() => {
+                const likeButton = document.querySelector(`.like-button[data-post-id="${postId}"]`);
+                likeButton.innerText = `Like (${updatedLikes})`;
+              });
+            });
+          });
+        });
+
+        document.querySelectorAll('.comment-button').forEach((button) => {
+          button.addEventListener('click', (e) => {
+            if (!currentUser) {
+              alert("কমেন্ট করতে লগইন করুন!");
+              return;
+            }
+            const postId = e.target.getAttribute('data-post-id');
+            const commentInput = document.getElementById('comment-input-' + postId);
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+              const commentId = Date.now();
+              const commentRef = ref(database, 'posts/' + postId + '/comments/' + commentId);
+              set(commentRef, {
+                username: currentUser,
+                comment: commentText,
+                timestamp: new Date().toISOString()
+              }).then(() => {
+                commentInput.value = '';
+                updateComments(postId);
+              });
+            }
+          });
+        });
+
+      } else {
+        postsContainer.innerHTML = "<p>No posts available</p>";
+      }
+    }).catch((error) => {
+      postsContainer.innerHTML = "<p>Error fetching posts: " + error.message + "</p>";
+    });
+
+    function renderComments(comments) {
+      return Object.values(comments).map(comment => `
+        <div class="comment-section">
+          <strong>${comment.username}</strong>: ${comment.comment}
+          <small>at ${new Date(comment.timestamp).toLocaleString()}</small>
+        </div>
+      `).join('');
+    }
+
+    function updateComments(postId) {
+      const commentsRef = ref(database, 'posts/' + postId + '/comments');
+      get(commentsRef).then((snapshot) => {
+        const comments = snapshot.val();
+        const commentsContainer = document.getElementById('comments-' + postId);
+        commentsContainer.innerHTML = renderComments(comments || {});
+      });
+    }
+    
+</script>
+</body>
+</html>

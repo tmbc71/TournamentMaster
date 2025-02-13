@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>গেমারদের কমিউনিটি</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Hind Siliguri', 'Merriweather', serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1b1b1f, #121212);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff8a00, #da1b60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+button {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(255, 65, 108, 0.5);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 12px 25px rgba(255, 65, 108, 0.8);
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 5px 12px rgba(255, 65, 108, 0.4);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 16px;
+    margin: 14px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+input:focus, textarea:focus {
+    border-color: #ff416c;
+    box-shadow: 0 0 12px rgba(255, 65, 108, 0.8);
+    outline: none;
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 35px;
+    border-radius: 20px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 100%;
+    max-width: 600px;
+    transition: all 0.4s ease;
+    transform: translateY(0);
+}
+
+form:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    button {
+        padding: 12px 28px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        padding: 10px 24px;
+        font-size: 1rem;
+    }
+
+    input, textarea {
+        font-size: 1rem;
+    }
+}
+
+</style>
+<body>
+    <div class="forum">
+        <h2>গেমারদের কমিউনিটি</h2>
+
+        <div id="auth">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="username" placeholder="ইউজারনেম" maxlength="12" minlength="12" required>
+            <input type="password" id="password" placeholder="পাসওয়ার্ড" required>
+            <button id="loginBtn">লগইন</button>
+            <button id="registerBtn">রেজিস্টার</button>
+        </div>
+
+        <div id="profile" style="display: none;">
+            <h3>প্রোফাইল</h3>
+            <p id="welcomeMessage"></p>
+            <button onclick="showPostForm()">পোস্ট তৈরি করুন</button>
+            
+
+  
+
+
+            <button id="logoutBtn" onclick="logout()">লগআউট</button>
+        </div>
+        
+       
+
+        <div id="createPost" style="display: none;">
+            <form id="postForm">
+                <input type="text" id="title" placeholder="পোস্টের শিরোনাম" required>
+                <textarea id="content" placeholder="আপনার পোস্ট লিখুন..." required></textarea>
+                
+                <button type="submit">পোস্ট করুন</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCTeGkGhh7da1qEJVq7GQewFX1N5Gz7yxY",
+        authDomain: "tmbc158.firebaseapp.com",
+        databaseURL: "https://tmbc158-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "tmbc158",
+        storageBucket: "tmbc158.appspot.com",
+        messagingSenderId: "365504228413",
+        appId: "YOUR_NEW_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+
+    const postForm = document.getElementById('postForm');
+    const authDiv = document.getElementById('auth');
+    const profileDiv = document.getElementById('profile');
+    const createPostDiv = document.getElementById('createPost');
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    let currentUser = null;
+
+    loginBtn.addEventListener('click', login);
+    registerBtn.addEventListener('click', register);
+
+    function login() {
+        const email = document.getElementById('email').value.trim();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+
+        if (username === "" || password === "") {
+            alert("ইউজারনেম এবং পাসওয়ার্ড ফিল্ড খালি রাখা যাবে না!");
+            return;
+        }
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+
+                if (!user.emailVerified) {
+                    alert("ইমেইল ভেরিফিকেশন সম্পূর্ণ হয়নি, অনুগ্রহ করে ইমেইলটি চেক করুন!");
+                    signOut(auth);
+                    return;
+                }
+
+                const userRef = ref(database, 'users/' + username);
+                get(userRef).then((snapshot) => {
+                    if (snapshot.exists() && snapshot.val().password === password) {
+                        currentUser = username;
+                        localStorage.setItem('loggedIn', 'true');
+                        localStorage.setItem('username', username);
+                        alert('লগইন সফল!');
+                        toggleFormVisibility();
+                    } else {
+                        alert('ইউজারনেম বা পাসওয়ার্ড ভুল!');
+                    }
+                });
+            })
+            .catch((error) => {
+                alert("লগইন করতে সমস্যা হয়েছে: " + error.message);
+            });
+    }
+
+    function register() {
+        const email = document.getElementById('email').value.trim();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+
+        if (username === "" || password === "") {
+            alert("ইউজারনেম এবং পাসওয়ার্ড ফিল্ড খালি রাখা যাবে না!");
+            return;
+        }
+
+        const usernameRegex = /^[a-zA-Z0-9_]+$/;
+        if (!username.match(usernameRegex)) {
+            alert("ইউজারনেমে স্পেস বা অক্ষর ব্যবহার করা যাবে না!");
+            return;
+        }
+
+        if (password.length < 8) {
+            alert("পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে!");
+            return;
+        }
+
+        const usernameRef = ref(database, 'users/' + username);
+        get(usernameRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                alert("এই ইউজারনেমটি ইতিমধ্যে নেওয়া হয়েছে, অনুগ্রহ করে অন্য একটি ইউজারনেম ব্যবহার করুন!");
+                return;
+            }
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    set(usernameRef, { username: username, password: password, email: email })
+                        .then(() => {
+                            sendEmailVerification(user)
+                                .then(() => {
+                                    alert('রেজিস্ট্রেশন সফল! আপনার ইমেইলে একটি ভেরিফিকেশন লিংক পাঠানো হয়েছে।');
+                                })
+                                .catch((error) => {
+                                    alert("ইমেইল ভেরিফিকেশন পাঠাতে সমস্যা হয়েছে: " + error.message);
+                                });
+                        })
+                        .catch((error) => {
+                            alert("ইউজার সংরক্ষণ করতে সমস্যা হয়েছে: " + error.message);
+                        });
+                })
+                .catch((error) => {
+                    alert("রেজিস্ট্রেশন করতে সমস্যা হয়েছে: " + error.message);
+                });
+        });
+    }
+
+    function toggleFormVisibility() {
+        if (localStorage.getItem('loggedIn') === 'true') {
+            currentUser = localStorage.getItem('username');
+            authDiv.style.display = 'none';
+            profileDiv.style.display = 'block';
+            document.getElementById('welcomeMessage').innerText = `স্বাগতম, @${currentUser}!`;
+        } else {
+            authDiv.style.display = 'block';
+            profileDiv.style.display = 'none';
+        }
+    }
+
+    function logout() {
+        signOut(auth).then(() => {
+            localStorage.removeItem('loggedIn');
+            localStorage.removeItem('username');
+            currentUser = null;
+            toggleFormVisibility();
+        }).catch((error) => {
+            alert("লগআউট করতে সমস্যা হয়েছে: " + error.message);
+        });
+    }
+
+    logoutBtn.addEventListener('click', logout);
+
+    postForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.getElementById('title').value.trim();
+        const content = document.getElementById('content').value.trim();
+
+        if (!title || !content) {
+            alert("শিরোনাম এবং কন্টেন্ট পূর্ণ করতে হবে!");
+            return;
+        }
+
+        const newPostRef = ref(database, 'posts/' + Date.now());
+        set(newPostRef, {
+            title: title,
+            content: content,
+            username: currentUser,
+            timestamp: new Date().toISOString()
+        })
+            .then(() => {
+                postForm.reset();
+                alert("পোস্ট সফলভাবে যুক্ত হয়েছে!");
+                createPostDiv.style.display = 'none';
+                profileDiv.style.display = 'block';
+            })
+            .catch((error) => {
+                alert("পোস্ট যুক্ত করতে সমস্যা হয়েছে: " + error.message);
+            });
+    });
+
+    window.showPostForm = function () {
+        profileDiv.style.display = 'none';
+        createPostDiv.style.display = 'block';
+    }
+
+    window.onload = function () {
+        toggleFormVisibility();
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                if (localStorage.getItem('loggedIn') === 'true') {
+                    currentUser = localStorage.getItem('username');
+                    toggleFormVisibility();
+                }
+            } else {
+                localStorage.removeItem('loggedIn');
+                localStorage.removeItem('username');
+                toggleFormVisibility();
+            }
+        });
+    }
+</script>
+
+    
+</body>
+</html>
